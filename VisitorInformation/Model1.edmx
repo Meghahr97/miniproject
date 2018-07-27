@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VisitorInformationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="visitors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="visiting" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="idtype" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="visitorId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vehicle" Type="varchar" MaxLength="10" />
+          <Property Name="contactnum" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="visit" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="checked in" Type="datetime" Nullable="false" />
+          <Property Name="checked out" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="VisitorInformationModelStoreContainer">
+          <EntitySet Name="visitors" EntityType="Self.visitors" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VisitorInformationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="visitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="firstname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="visiting" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idtype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="contactnum" Type="String" Nullable="false" />
+          <Property Name="visit" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="visitorId" Type="String" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="checked_in" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="checked_out" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="VisitorInformationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="visitors" EntityType="Self.visitor" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VisitorInformationModelStoreContainer" CdmEntityContainer="VisitorInformationEntities">
+          <EntitySetMapping Name="visitors">
+            <EntityTypeMapping TypeName="VisitorInformationModel.visitor">
+              <MappingFragment StoreEntitySet="visitors">
+                <ScalarProperty Name="checked_out" ColumnName="checked out" />
+                <ScalarProperty Name="checked_in" ColumnName="checked in" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="visitorId" ColumnName="visitorId" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="visiting" ColumnName="visiting" />
+                <ScalarProperty Name="idtype" ColumnName="idtype" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vehicle" ColumnName="vehicle" />
+                <ScalarProperty Name="contactnum" ColumnName="contactnum" />
+                <ScalarProperty Name="visit" ColumnName="visit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
